@@ -104,14 +104,16 @@ if __name__ == '__main__':
 					actor = re.sub("<.*?>", "", line)
 					actor = actor.replace('\t',"")
 					actor = actor.replace('\n',"")
-					list_acter.append(actor)
+					if actor != "":
+						list_acter.append(actor)
 				if flag_actor and preline.find("<td></td>") != -1:
 					actor = re.sub("<.*?>", "", line)
 					actor = actor.replace('\t',"")
 					actor = actor.replace('\n',"")
-					list_acter.append(actor)
+					if actor != "":
+						list_acter.append(actor)
 				# 出演を閉じる
-				if line.find("</tbody>") != -1:
+				if line.find("</tbody>") != -1 or line.find("</table>") != -1:
 					flag_actor = False
 
 				preline = line
